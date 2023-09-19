@@ -1,0 +1,9 @@
+<% @books.each do |book| %>
+  <div>
+    <p>ユーザー画像: <%= image_tag 'no_image.jpg' %></p>
+    <p>ユーザーネーム: <%= book.user.name %></p>
+    <p>title: <%= link_to book.title, "/books/#{book.id}" %></p>
+    <p>body: <%= book.body %></p>
+    
+  </div>
+<% end %>
