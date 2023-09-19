@@ -1,0 +1,17 @@
+<!-- ユーザーの詳細 -->
+<div>
+  <h3><%= @user.name %></h3>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <p><%= link_to"プロフィール編集", edit_user_path(@user.id) %></p>
+</div>
+
+<!-- ユーザー投稿一覧 -->
+
+<% @books.each do |book| %>
+  <div>
+    <p>ユーザー画像: <%= image_tag book.user.get_profile_image(100,100) %></p>
+    <p>ユーザーネーム: <%= book.user.name %></p>
+    <p>title: <%= link_to book.title, "/books/#{book.id}" %></p>
+    <p>Opinion: <%= book.body %></p>
+  </div>
+<% end %>
