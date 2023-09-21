@@ -1,11 +1,28 @@
-<%= render 'list', user: @user,book: @book %>
-
-<% @books.each do |book| %>
-  <div>
-    <p>ユーザー画像: <%= image_tag book.user.get_profile_image(100,100) %></p>
-    <p>ユーザーネーム: <%= book.user.name %></p>
-    <p>title: <%= link_to book.title, "/books/#{book.id}" %></p>
-    <p>body: <%= book.body %></p>
-
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    
+  <div class='col-md-3'>
+    <%= render 'list', user: @user,book: @book %>
   </div>
-<% end %>
+
+<div class="container col-md-8 offfset-md-1">
+  <h2>Books</h2>
+    <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Opinion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+      <tr>
+        <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+        <td><%= link_to book.title, "/books/#{book.id}" %></td>
+        <td><%= book.body %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
