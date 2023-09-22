@@ -1,3 +1,5 @@
+<div class= container >
+  <div class="justify-content-center">
 <% if @book.errors.any? %>
   <%= @book.errors.count %>件のエラーが発生しました
   <ul>
@@ -16,12 +18,15 @@
 
   <h4>Opinion</h4>
   <%= f.text_area :body %>
-
-  <%= f.submit 'Updatebook' %>
-
+  <div>
+  <%= f.submit 'Updatebook',class:'btn btn-sm btn-success' %>
+  </div>
+  <div>
   <%= link_to "Show", book_path(@book.id) %>
   |
   <%= link_to "Back", books_path %>
-
+  </div>
 
  <% end %>
+  </div>
+</div>
