@@ -92,14 +92,16 @@
     </header>
 
     <main>
-          <%= flash[:notice] %>
+      <%= flash[:notice] %>
+      <%= yield %>
     </main>
-    <%= yield %>
 
     <footer>
       <div class= container >
-        <div class="d-flex justify-content-center">
+        <div class="row">
+          <div class= "mx-auto">
           <p>CopyRight Infratop.inc</p>
+          </div>
         </div>
       </div>
     </footer>
