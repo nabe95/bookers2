@@ -1,6 +1,6 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-    
+
   <div class='col-md-3'>
     <%= render 'list', user: @user,book: @book %>
   </div>
@@ -10,7 +10,11 @@
   <table class="table">
     <tbody>
     <tr>
-      <td><%= image_tag @book.user.get_profile_image(100,100) %><br><%= @book.user.name %></td>
+      <td><%= link_to user_path(@book.user_id) do %>
+          <%= image_tag @book.user.get_profile_image(100,100) %>
+          <br><%= @book.user.name %>
+          <% end %>
+      </td>
       <td><%= @book.title %></td>
       <td><%= @book.body %></td>
       <td><% if @book.user == current_user %>
@@ -19,7 +23,7 @@
       </td>
       <td>
           <% if @book.user == current_user %>
-          <%= link_to "destroy", book_path(@book.id), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+          <%= link_to "Destroy", book_path(@book.id), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
           <% end %>
       </td>
     </tr>
